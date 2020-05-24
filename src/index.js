@@ -1,12 +1,20 @@
 const express = require('express');
-const server = express();
+const app = express();
 const PORT = 3333;
-const routes = require('./routes');
+const mongoose = require('mongoose');
+const consign = require('consign');
 
-server.use(express.json());
-server.use(express.urlencoded({ extended: true }));
-server.use(routes);
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-server.listen(PORT, _ => {
+
+consign()
+  .include('./src/api')
+  .into(app)
+;
+
+console.log(app);
+
+app.listen(PORT, _ => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
