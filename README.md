@@ -19,12 +19,24 @@ Após instalação rode o comando:
 - mongoose;
 - multan.
 
+## MongoDB
+
+1. Criará um DBS de nome 'filemongo'
+> ``` mongoose.connect("mongodb://localhost:27017/filemongo"... ```
+2. Criará uma collection de nome posts dentro de filemongo.
+> ``` app.mongoose.model('Post', PostSchema)... ```
+
+## Consign
+- O consign facilita o desenvolvimento de aplicativos com separação lógica de arquivos e carregamento automático de scripts.
+  - Consign pode ser usado para carregar automaticamente modelos, rotas, esquemas, configurações, controladores, mapas de objetos, etc.
+- > ``` consign().include('./src/config/multer.js').then('./src/api').into(app); ``` 
+
 ## Startup
 > ``` yarn dev ```
 
 ## Rotas
 
-| URL                |  Método             | Operação                     |
-| ------------------ | ------------------- | ---------------------------- |
-|  /users            |  GET                | Lista todos os usuários      |
-|  /users            |  POST               | Cria um novo usuário         |
+| URL                |  Método             | Operação                       |
+| ------------------ | ------------------- | ------------------------------ |
+|  /posts            |  POST               | Realiza o upload de uma imagem |
+

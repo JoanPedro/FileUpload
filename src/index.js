@@ -17,7 +17,6 @@ app.use(morgan('dev'));
 consign()
   .include('./src/config/multer.js')
   .then('./src/api')
-  
   .into(app)
 ;
 
